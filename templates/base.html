@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+</head>
+
+<body>
+    {% include 'header.html' %}
+
+    {% for todo in todo_list %}
+
+    {% with todo_data=todo %}
+    {% include 'todo_detail.html' %}
+    {% endwith %}
+
+    <hr />
+
+    <p>
+        <a href="/todo/{{todo.id}}">{{todo.id }} | {{ todo.title }}</a>
+    </p>
+
+    {% if todo.complete == False %}
+    <span>Not Complete</span>
+    {% else %}
+    <span>Completed</span>
+    {% endif %}
+
+    {% endfor %}
+
+    <footer>Copyright blah</footer>
+
+</body>
+
+</html>
