@@ -8,19 +8,7 @@
 </head>
 
 <body>
-    {% include 'header.html' %}
-
-    {% for todo in todo_list %}
-
-    {% with todo_data=todo %}
-    {% include 'todo_detail.html' %}
-    {% endwith %}
-
-    <hr />
-
-    <p>
-        <a href="/todo/{{todo.id}}">{{todo.id }} | {{ todo.title }}</a>
-    </p>
+    <p>{{todo.id }} | {{ todo.title }}</p>
 
     {% if todo.complete == False %}
     <span>Not Complete</span>
